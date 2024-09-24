@@ -1,0 +1,26 @@
+[
+   {
+      "id":0,
+      "title":"This is a task",
+      "created_at":"24/09/2024",
+      "completed":false,
+      "details":"This task has some details over here.",
+      "attachment_url":null
+   },
+   {
+      "id":1,
+      "title":"This is another task",
+      "created_at":"22/09/2024",
+      "completed":true,
+      "details":"This task has some details over here.",
+      "attachment_url":"../assets/attachment_example.pdf"
+   },
+   {
+      "id":2,
+      "title":"Again another task",
+      "created_at":"20/09/2024",
+      "completed":false,
+      "details":null,
+      "attachment_url":"../assets/attachment_example2.jpg"
+   }
+]
