@@ -1,27 +1,25 @@
 import { useState } from "react";
-import '../index.css';
+import './AddTaskForm.css';
 
 const getCurrentDate = () => {
     const today = new Date();
     const day = String(today.getDate()).padStart(2, '0'); // Día con dos dígitos
     const month = String(today.getMonth() + 1).padStart(2, '0'); // Mes con dos dígitos (los meses comienzan desde 0)
     const year = today.getFullYear(); // Año con cuatro dígitos
-
     return `${day}/${month}/${year}`;
 };
 
-export const FormNewTask = ({handleNewForm, handleCloseForm}) => {
+export const AddTaskForm = ({handleNewForm, handleCloseForm}) => {
     const [title, setTitle] = useState("")
     const [details, setDetails] = useState("")
     const [file, setFile] = useState(null)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log("Title: ", title, "Details: ", details, "File: ", file)
-        const hasDetails = details==""?null:details
+        const hasDetails = details===""?null:details
         handleNewForm({
             title, 
-            createdAt:getCurrentDate(), 
+            created_at:getCurrentDate(), 
             completed:false, 
             details:hasDetails, 
             attachment_url:null
@@ -52,42 +50,38 @@ export const FormNewTask = ({handleNewForm, handleCloseForm}) => {
         setFile(e.target.files[0])
     }
     const handleCancel = (e) => {
-        e.preventDefault(); // Evita que el botón "Cancel" envíe el formulario
+        e.preventDefault();
         setTitle("")
         setDetails("")
         setFile(null)
         handleCloseForm();
     }
     return (
-        <div className="form-background">
-            <div className="form-container">                
-                <h1>Add task to To-Do list</h1>
-                <form action="" onSubmit={handleSubmit}>
-                    <input 
-                        placeholder="task title" 
-                        type="text" 
-                        value={title}
-                        onChange={handleChangeTitle} 
-                        required>
-                    </input>
-                    <input 
-                        placeholder="task detail" 
-                        type="text" 
-                        value={details}
-                        onChange={handleChangeDetails}>
-                    </input>
-                    <input 
-                        type="file" 
-                        onChange={handleChangeFile}
-                    ></input>
-                    <div className="btn-container">
-                        <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
-                        <button className="add-btn" type="submit">Add</button>
-                    </div>
-                </form>
-
-
-            </div>
+        <div className="form-container">                
+            <h1>Add task to To-Do list</h1>
+            <form action="" onSubmit={handleSubmit}>
+                <input 
+                    placeholder="task title" 
+                    type="text" 
+                    value={title}
+                    onChange={handleChangeTitle} 
+                    required>
+                </input>
+                <input 
+                    placeholder="task detail" 
+                    type="text" 
+                    value={details}
+                    onChange={handleChangeDetails}>
+                </input>
+                <input 
+                    type="file" 
+                    onChange={handleChangeFile}
+                ></input>
+                <div className="btn-container">
+                    <button className="cancel-btn" onClick={handleCancel}>Cancel</button>
+                    <button className="add-btn" type="submit">Add</button>
+                </div>
+            </form>
         </div>
     );
 }
