@@ -1,0 +1,27 @@
+.task-row {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background-color: white;
+    border: 1px solid #dee2e6;
+    border-radius: 4px;
+  }
+  
+  .task-row.completed {
+    opacity: 0.6;
+  }
+  
+  .task-title {
+    flex-grow: 1;
+    margin-left: 0.5rem;
+  }
+  
+  .task-status {
+    font-size: 0.8rem;
+    color: #6c757d;
+    margin-right: 0.5rem;
+  }
+  
+  .attachment-icon {
+    color: #6c757d;
+  }

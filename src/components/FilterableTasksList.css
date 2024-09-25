@@ -1,0 +1,20 @@
+.filterable-tasks-list {
+    width: 300px;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-right: 1px solid #dee2e6;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.tasks-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
